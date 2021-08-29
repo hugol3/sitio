@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-framework="javascript">
+	<head>
+		<meta charset="utf-8">
+		<title>sitio</title>
+		<!--Css-->
+		<link rel="stylesheet" href="assets/css/estilo.css">
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+	</head>
+	<body>
+		<div class="conteiner">
+			<!--Header-->
+			<header class="header" id="header">
+				<h1>Buscardor de Musica</h1>
+				<!--Menu-->
+				<nav class="menu" id="menu">
+					<a href="#" class="btn-menu" id="btn-menu"> <i class="icono fa fa-bars"></i> </a>
+					<div class="enlaces" id="enlaces">
+						<a href="#">Inicio</a>
+						<a href="#">Acerca de</a>
+						<a href="#">Contacto</a>	
+					</div>
+				</nav>
+				<br>
+				<!--Formulario-->
+				<form id="buscar">
+					<label for="">Buscar: </label>
+					<input type="text" name="artist" placeholder="Nombre del artista">
+					<br>
+					<input type="submit">	
+					<img class="loader" src="assets/img/loader.svg" alt="Cargando...">
+					<aside class="error"></aside>
+				</form>
+			</header>
+
+			
+			<!--Contenido-->
+			<main class="cont">
+				<article class="conteiner-info">
+					<div class="conteiner-img">
+						
+					</div>
+					<div class="conteiner-txt">
+						
+					</div>
+				</article>	
+			</main>	
+		</div>
+
+		<!--Scripts-->
+		<script src="assets/js/jquery-3.6.0.min.js"></script>
+		<script src="assets/js/app.js"></script>
+		<script src="assets/js/headroom.min.js"> </script>
+	</body>
+</html>
