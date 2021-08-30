@@ -32,34 +32,32 @@ $(function(){
 
    //se toma en cuenta un tamaña y si se pasa del tamaño definido
    $(window).on('resize', function(){
-    if($(this).width()>806)
-    {
-        menu.show();//muestra el menu
-        icono.addClass('fa-times'); //Cambia icono de barra por una cruz
-        icono.removeClass('fa-bars');//Quita el icono de barras		
-    }
-    else
-    {
-        menu.hide(); //oculta el menu	
-        icono.addClass('fa-bars');//Cambia el icono de cruz por el icono de barras
-        icono.removeClass('fa-times');//Remueve el icono de cruz 	
-    }
-});
+        if($(this).width()>806)
+        {
+            menu.show(); //muestra el menu
+            icono.addClass('fa-times'); //Cambia icono de barra por una cruz
+            icono.removeClass('fa-bars'); //Quita el icono de barras		
+        }
+        else
+        {
+            menu.hide(); //oculta el menu	
+            icono.addClass('fa-bars'); //Cambia el icono de cruz por el icono de barras
+            icono.removeClass('fa-times'); //Remueve el icono de cruz 	
+        }
+    });
 
    $form.addEventListener('submit', async e=>{
         e.preventDefault();
-        //Para evitar errores en el envio de informacion se coloca un try catch
-        try
+        try //Para evitar errores en el envio de informacion se coloca un try catch
         {
-            $loader.style.display ="block";//Cambia estilo al id loader
-            $cont.style.display ="block";//Cambia estilo al id cont
-            //Se crea la variable artist que va a contener lo del formulario
-            let artist = e.target.artist.value.toLowerCase()//Transforma el contenido del formulario en minusculas,
+            $loader.style.display ="block";
+            $cont.style.display ="block";
+            let artist = e.target.artist.value.toLowerCase(), //Transforma el contenido del formulario en minusculas
             $artistTemplate = "",
-            artistAPI = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`//La url del API con el nombre del artista,
-            artistFetch = fetch(artistAPI)//Hacemos una consulta al API,
-            [artistRes] = await Promise.all([artistFetch])//Muestra todo el contenido de la consulta,
-            artistData = await artistRes.json();//los transforma en un JSON
+            artistAPI = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`
+            artistFetch = fetch(artistAPI), //Hacemos una consulta al API
+            [artistRes] = await Promise.all([artistFetch]), //Muestra todo el contenido de la consulta
+            artistData = await artistRes.json(); //los transforma en un JSON
             //Verificamos si el json no esta vacio
             if(artistData.artist === null)
             {
